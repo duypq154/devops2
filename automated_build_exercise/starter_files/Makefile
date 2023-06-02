@@ -1,6 +1,8 @@
 install:
 	pip install --upgrade pip &&\
 	pip install -r requirements.txt
+	pip install pytest
+	pip3 install pytest
 
 test:
 	python3 -m pytest -vv test_hello.py
