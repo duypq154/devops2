@@ -1,2 +1,2 @@
 # devops2
-test CI
+test CI 2
