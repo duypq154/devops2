@@ -15,7 +15,6 @@ jobs:
         python-version: 3.8
     - name: cd to makefile folder
       run: |
-        cd devops2
         cd automated_build_exercise/starter_files/
     - name: Install dependencies
       run: |
