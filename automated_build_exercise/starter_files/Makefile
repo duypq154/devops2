@@ -6,6 +6,7 @@ install:
 	pip install click
 	pip3 install click
 	pip install pylint
+	pip3 install pylint
 test:
 	python3 -m pytest -vv test_hello.py
 	
