@@ -16,6 +16,7 @@ jobs:
     - name: cd to makefile folder
       run: |
         cd automated_build_exercise/starter_files/
+        touch Makefile
     - name: Install dependencies
       run: |
         make install
