@@ -1,3 +1,2 @@
 # devops2
-test CI 2
-this is a new line to check commit
+[![Python application test with Github Actions](https://github.com/duypq154/devops2/actions/workflows/pythonapp.yml/badge.svg)](https://github.com/duypq154/devops2/actions/workflows/pythonapp.yml)
