@@ -2,9 +2,9 @@ from flask import Flask, request, jsonify
 from flask.logging import create_logger
 import logging
 
+import sklearn
 import pandas as pd
 import joblib
-import sklearn
 from sklearn.preprocessing import StandardScaler
 
 app = Flask(__name__)
