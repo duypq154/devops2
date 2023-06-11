@@ -44,7 +44,55 @@
         python app.py
     - Create Azure WebApp Service using command:
         az webapp up --name flaskappduypq5 --resource-group Azuredevops --sku B1 --logs --runtime "PYTHON:3.9"
+        result: https://flaskappduypq5.azurewebsites.net/
     - Run prediction against a working devloyed Azure Application using command:
-        vim ./make_predict_azure_app.sh
+        ./make_predict_azure_app.sh
+    - Result of created Azure WebApp Service: 
+    - Result of make prediction: 
+    - Logged into the https://portal.azure.com/
+    - Created a DevOps org at https://dev.azure.com/
+    - Created a DevOps publish project: GO to Organization setting => Policies => Allow public project => create your public project
+    - Create Service Connection on DevOps project: Go to the Project settings >> Service connection settings, and ensure you set up a new service connection via Azure Resource Manager and Service principal
+    - Create personal access token: From your devops project, go to User settings => Personal access tokens => save your PAT
+    - Create your self-hosted Agent Pool: Go to the Project Settings => Agent pools and add a new agent pool, say myAgentPool
+    - Create an Agent (VM): Using Azure UI to create a default VM quickly
+    - Connect to your VM using command:
+        ssh duypq5@20.68.168.236
+    - Install docker in your VM using command:
+        sudo snap install docker
+    - Upgrade your python using command:
+        sudo apt update
+    - Configure the your user to run Docker using command:
+        sudo groupadd docker
+        sudo usermod -aG docker $USER
+        exit
+        restart your VM to apply new setting
+    - Create Agent Service:
+        Go to Project settings => Agent pools => New Agent
+        Download your agent pool to VM by command:
+             curl -O https://vstsagentpackage.azureedge.net/agent/3.220.5/vsts-agent-linux-x64-3.220.5.tar.gz
+        Create a new folder and cd to it: 
+            mkdir myagent && cd myagent
+        Extract agent:
+             tar zxvf ~/vsts-agent-linux-x64-3.220.5.tar.gz
+        Run config agent by command:
+             ./config.sh
+        Provide your organization devops link
+        Provide your PAT
+        Provide your AgentPool Name
+        Provide your agent name created in VM
+        Start the azure pipeline agent service by command:
+            sudo ./svc.sh install
+            sudo ./svc.sh start
+    - Application Specific Configuration:
+        sudo apt-get install python3.9-venv
+        sudo apt-get install python3-pip
+        pip install pylint==2.13.7
+        Update the Path for Pylint.
+            export PATH=$HOME/.local/bin:$PATH
+            echo $PATH
+            which pylint
+        Result of agent service: 
+    - Create a PipeLine: 
 
 [![Python application test with Github Actions](https://github.com/duypq154/devops2/actions/workflows/pythonapp.yml/badge.svg)](https://github.com/duypq154/devops2/actions/workflows/pythonapp.yml)
