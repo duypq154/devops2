@@ -9,6 +9,10 @@
  4. (CD) Deploy Azure App Service via CLI
  5. Azure DevOps pipeline: A pipeline has been set up in Azure DevOps to automatically test and deploy the updated code to the Azure App Service.
 
+# Plan
+- Trello plan: https://trello.com/b/tnGwokZy/devops
+- Project Management Template: https://github.com/duypq154/devops2/blob/main/Project_plan/Project%20Management%20Template.xlsx
+
 # Instructions
 1. Setup Azure Cloud Shell:
     - Create a GubHub Repo (https://github.com/duypq154/devops2)
