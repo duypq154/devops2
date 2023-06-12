@@ -56,7 +56,14 @@ stages:
         archiveType: zip
         archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
         replaceExistingArchive: true
-
+    - task: PowerShell@2
+      displayName: 'Inline Powershell'
+      inputs:
+        TargetType: inline
+        script: |
+          Compress-Archive -Path "$(Build.BinariesDirectory)\target\debug" -DestinationPath "$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip"
+          pwsh: true
+          
     - upload: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
       displayName: 'myStep 5 - Upload package'
       artifact: drop
