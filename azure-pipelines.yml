@@ -51,9 +51,10 @@ stages:
     - task: ArchiveFiles@2
       displayName: 'myStep 4 - Archive files'
       inputs:
-        rootFolderOrFile: '$(projectRoot)'
+        #rootFolderOrFile: '$(projectRoot)'
+        rootFolderOrFile: '$(Build.SourcesDirectory)'
         includeRootFolder: false
-        archiveType: 7z
+        archiveType: zip
         archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
         replaceExistingArchive: true
         verbose: true
