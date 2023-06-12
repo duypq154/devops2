@@ -108,7 +108,10 @@
     - Add more Jobs to the Pipeline:
         Install zip into your VM to run pipeline Archive file:
             sudo apt-get -y install zip
-        Result of Pipeline:
+        Result of multiple job in Pipeline:https://github.com/duypq154/devops2/blob/main/output/Pipeline_multiple_step_result.png
+    - Add more Stages to the Pipeline:
+        Result of deployment stage in Pipeline: 
     
 
 [![Python application test with Github Actions](https://github.com/duypq154/devops2/actions/workflows/pythonapp.yml/badge.svg)](https://github.com/duypq154/devops2/actions/workflows/pythonapp.yml)
+[![Build Status](https://dev.azure.com/odluser235568/devops2/_apis/build/status%2Fduypq154.devops2?branchName=main)](https://dev.azure.com/odluser235568/devops2/_build/latest?definitionId=1&branchName=main)
