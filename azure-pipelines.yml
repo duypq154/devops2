@@ -53,9 +53,10 @@ stages:
       inputs:
         rootFolderOrFile: '$(projectRoot)'
         includeRootFolder: false
-        archiveType: zip
+        archiveType: 'zip'
         archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
         replaceExistingArchive: true
+        verbose: true
 
     - upload: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
       displayName: 'myStep 5 - Upload package'
