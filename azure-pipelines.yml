@@ -51,13 +51,11 @@ stages:
     - task: ArchiveFiles@2
       displayName: 'myStep 4 - Archive files'
       inputs:
-        #rootFolderOrFile: '$(projectRoot)'
-        rootFolderOrFile: '$(Build.SourcesDirectory)'
+        #rootFolderOrFile: $(projectRoot)
         includeRootFolder: false
         archiveType: zip
         archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
         replaceExistingArchive: true
-        verbose: true
 
     - upload: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
       displayName: 'myStep 5 - Upload package'
