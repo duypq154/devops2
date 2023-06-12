@@ -43,12 +43,17 @@
     - Run your app using command:
         python app.py
     - Create Azure WebApp Service using command:
-        az webapp up --name flaskappduypq5 --resource-group Azuredevops --sku B1 --logs --runtime "PYTHON:3.9"
+        az webapp up --name flaskappduypq5 --resource-group Azuredevops --sku B1 --logs --runtime PYTHON:3.9
         result: https://flaskappduypq5.azurewebsites.net/
     - Run prediction against a working devloyed Azure Application using command:
+        chmod +xr make_predict_azure_app.sh
         ./make_predict_azure_app.sh
-    - Result of created Azure WebApp Service: 
-    - Result of make prediction: 
+    - Trace streamed log files from deployed application
+	    az webapp log tail -g Azuredevops --name flaskappduypq5
+    - Result of created Azure WebApp Service: https://github.com/duypq154/devops2/blob/main/output/Deploy_WebAppService_Result.png
+    - Result of make prediction: https://github.com/duypq154/devops2/blob/main/output/Make_prediction_azure_app_result.png
+    - Result of log tail: https://github.com/duypq154/devops2/blob/main/output/Webapp_LogTail_Result.png
+
     - Logged into the https://portal.azure.com/
     - Created a DevOps org at https://dev.azure.com/
     - Created a DevOps publish project: GO to Organization setting => Policies => Allow public project => create your public project
@@ -57,7 +62,7 @@
     - Create your self-hosted Agent Pool: Go to the Project Settings => Agent pools and add a new agent pool, say myAgentPool
     - Create an Agent (VM): Using Azure UI to create a default VM quickly
     - Connect to your VM using command:
-        ssh duypq5@20.68.168.236
+        ssh myagent@(Your VM public IP)
     - Install docker in your VM using command:
         sudo snap install docker
     - Upgrade your python using command:
@@ -69,8 +74,12 @@
         restart your VM to apply new setting
     - Create Agent Service:
         Go to Project settings => Agent pools => New Agent
+        ReConnect to your VM using command:
+        ssh myagent@(Your VM public IP)
         Download your agent pool to VM by command:
              curl -O https://vstsagentpackage.azureedge.net/agent/3.220.5/vsts-agent-linux-x64-3.220.5.tar.gz
+             pwd
+             ls
         Create a new folder and cd to it: 
             mkdir myagent && cd myagent
         Extract agent:
@@ -92,7 +101,14 @@
             export PATH=$HOME/.local/bin:$PATH
             echo $PATH
             which pylint
-        Result of agent service: 
+        Result of agent service: https://github.com/duypq154/devops2/blob/main/output/Agent_Pool.png
     - Create a PipeLine: 
+        Go back to your devops project => Pipeline => Create Pipeline => GitHub ==> Choose your Repo
+        Result of Pipeline run: https://github.com/duypq154/devops2/blob/main/output/Pipeline_result.png
+    - Add more Jobs to the Pipeline:
+        Install zip into your VM to run pipeline Archive file:
+            sudo apt-get -y install zip
+        Result of Pipeline:
+    
 
 [![Python application test with Github Actions](https://github.com/duypq154/devops2/actions/workflows/pythonapp.yml/badge.svg)](https://github.com/duypq154/devops2/actions/workflows/pythonapp.yml)
