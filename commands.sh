@@ -1,1 +1,1 @@
-az webapp up --name flaskappduypq5 --resource-group Azuredevops --sku B1 --logs --runtime "PYTHON:3.9”
+az webapp up --name flaskappduypq5 --resource-group Azuredevops --sku B1 --logs --runtime PYTHON:3.9
