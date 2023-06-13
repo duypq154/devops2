@@ -116,5 +116,5 @@
     - Add Deployment Stages to the Pipeline:
         Result of deployment stage in Pipeline: https://github.com/duypq154/devops2/blob/main/output/Deployment_Stage_in_Pipeline_Result.png
     
-Hello, this is the commit for testing GitHub Action
+Hello, I am GitHub Action
 [![Python application test with Github Actions](https://github.com/duypq154/devops2/actions/workflows/pythonapp.yml/badge.svg)](https://github.com/duypq154/devops2/actions/workflows/pythonapp.yml)
